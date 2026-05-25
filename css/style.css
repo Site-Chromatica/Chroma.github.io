@@ -227,7 +227,9 @@ h2 {
     margin-top: 35px;
     margin-left: 350px;
     margin-right: 350px;
+    transition: margin-left 0.35s ease;
 }
+
 .document-card {
     background-color: var(--color7);
     padding: 15px;
@@ -236,7 +238,7 @@ h2 {
     transition: all 0.4s ease;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     cursor: pointer;
     color: var(--color2);
     min-height: 300px;
@@ -245,16 +247,18 @@ h2 {
     align-items: center;
     box-shadow: var(--color6) 0px 0px 15px;
 }
+
 .document-card:hover {
-    transform: translateY(-10px);
     box-shadow: var(--color6) 0px 0px 25px;
 }
 
+
 .document-card p {
-        color: var(--color3);
+    color: var(--color3);
     font-size: 1.2em;
     font-weight: 600;
 }
+
 .document-card h3 {
     color: var(--color6);
     font-size: 1.6em;
@@ -262,15 +266,46 @@ h2 {
 }
 
 
+
 .footer {
     color: var(--color2);
     background-color: var(--color7);
-    padding-bottom: 3em;
+    width: 100%;
+    height: 3rem;
     margin-top: 20px;
+    bottom: 0;
+    position: fixed;
 }
+
 .document-icon {
     filter: drop-shadow(0 0 20px var(--color6));
     margin-top: 30px;
     font-size: 3em;
     margin-bottom: 15px;
+}
+
+.side-panel-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 24em;
+    background-color: #342658;
+    color: var(--color2);
+    padding: 1rem;
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+    z-index: 1000;
+    box-shadow: -12px 0 24px rgba(0, 0, 0, 0.35);
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+}
+
+.side-panel-card.open {
+    transform: translateX(0);
+}
+
+
+.side-panel-card.open~.hr-tuile-form {
+    margin-left: 600px;
 }
