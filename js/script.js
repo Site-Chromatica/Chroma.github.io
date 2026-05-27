@@ -220,21 +220,5 @@ document.addEventListener("DOMContentLoaded", () => {
     resize();
     requestAnimationFrame(draw);
 
-    // Panel latéral au hover des cartes
-    const cards = document.querySelectorAll('.document-card');
-    const panel = document.createElement('div');
-    panel.className = 'side-panel-card';
-    document.body.appendChild(panel);
-
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            panel.innerHTML = card.innerHTML;
-            panel.classList.add('open');
-            document.querySelector('.hr-tuile-form').style.marginLeft = '600px';
-        });
-        card.addEventListener('mouseleave', () => {
-            panel.classList.remove('open');
-            document.querySelector('.hr-tuile-form').style.marginLeft = '350px';
-        });
-    });
+   
 });
