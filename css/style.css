@@ -231,7 +231,6 @@ h2 {
 }
 
 .document-card {
-    background-color: var(--color7);
     padding: 15px;
     border-radius: 15px;
     border: 3px solid var(--color6);
@@ -314,7 +313,6 @@ h2 {
   /* Ta carte prend tout l'espace cliquable */
   display: block;
   padding: 20px;
-  background: #1a1a2e;
   border-radius: 12px;
   text-align: center;
 }
@@ -326,9 +324,7 @@ h2 {
 
 .description {
   padding: 15px 20px;
-  background: #1a1a2e;
   border-radius: 0 0 12px 12px;
-  color: #ccc;
-  font-size: 14px;
+  color: var(--color3);
   line-height: 1.6;
 }
