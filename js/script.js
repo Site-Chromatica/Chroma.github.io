@@ -59,7 +59,7 @@ function initMenuEvents() {
     items.forEach((item, index) => {
         item.addEventListener('click', () => {
             if (index === 0) {
-                window.location.href = `${basePath}/Index.html`;
+                window.location.href = `${basePath}/index.html`;
             } else if (index === 1) {
                 window.location.href = `${basePath}/option/Who_Is_Chromatica.html`;
             } else if (index === 2) {
