@@ -10,6 +10,7 @@
 main {
     flex: 1;
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -97,13 +98,21 @@ h2 {
 }
 
 .button {
-    background-color: var(--color5);
+    background-color: var(--color7);
     border-radius: 1em;
     height: 5em;
     width: 15em;
     font-size: 1em;
     display: block;
     margin: auto;
+}
+
+.button:hover {
+    background-color: var(--color6);
+    color: var(--color2);
+    box-shadow: var(--color6) 0px 0px 15px;
+    cursor: pointer;
+
 }
 
 .menu-container {
@@ -190,9 +199,6 @@ h2 {
     opacity: 0.9;
 }
 
-.button:hover {
-    background-color: var(--color6);
-}
 
 /* Pourquoi Nous */
 
@@ -238,6 +244,7 @@ h2 {
     flex-direction: column;
     align-items: center;
     box-shadow: var(--color6) 0px 0px 15px;
+    cursor: default;
 }
 
 .document-card:hover {
@@ -271,45 +278,12 @@ h2 {
     margin-top: auto;
 }
 
-.side-panel-card {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: min(24em, 80vw);
-    background-color: #342658;
-    color: var(--color2);
-    padding: 1rem;
-    transform: translatey(-100%);
-    transition: transform 0.35s ease;
-    z-index: 1000;
-    box-shadow: -12px 0 24px rgba(0, 0, 0, 0.35);
-    border-top-left-radius: 0.5em;
-    border-bottom-left-radius: 0.5em;
+.document-icon {
+    font-size: 2.5rem;
+    /* couleur au choix */
+    margin-bottom: 10px;
 }
 
-.card {
-}
-
-.card summary {
-    list-style: none;
-    cursor: pointer;
-    display: block;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.card summary::-webkit-details-marker {
-    display: none;
-}
-
-.description {
-    padding: 15px 20px;
-    border-radius: 0 0 12px 12px;
-    color: var(--color3);
-    line-height: 1.6;
-}
 
 /* ============================
    RESPONSIVE

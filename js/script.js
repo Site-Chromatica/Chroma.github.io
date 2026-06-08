@@ -73,6 +73,10 @@ function initMenuEvents() {
     });
 }
 
+
+
+
+
 // --- Canvas Setup ---
 const c = document.getElementById('c');
 const cx = c.getContext('2d');
@@ -220,5 +224,5 @@ document.addEventListener("DOMContentLoaded", () => {
     resize();
     requestAnimationFrame(draw);
 
-   
+
 });
