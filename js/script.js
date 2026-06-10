@@ -73,6 +73,41 @@ function initMenuEvents() {
     });
 }
 
+const checkboxAutre = document.getElementById('checkAutre');
+const conteneurTexte = document.getElementById('zoneTexteAutre');
+const textareaPrecision = document.getElementById('precision');
+
+// 2. On écoute le clic sur la checkbox
+    checkboxAutre.addEventListener('change', function() {
+        if (this.checked) {
+            // Si cochée : on affiche le bloc et on rend le champ obligatoire
+            conteneurTexte.style.display = 'block';
+            textareaPrecision.required = true;
+        } else {
+            // Si décochée : on cache le bloc, on enlève l'obligation et on vide le texte
+            conteneurTexte.style.display = 'none';
+            textareaPrecision.required = false;
+            textareaPrecision.value = ''; 
+        }
+    });
+const CouleurAutre = document.getElementById('CouleurAutre');
+const ConteneurCouleur = document.getElementById('zoneTexteAutre');
+const InputCouleur = document.getElementById('CouleurPrecision');
+
+// 2. On écoute le clic sur la checkbox
+    CouleurAutre.addEventListener('change', function() {
+        if (this.checked) {
+            // Si cochée : on affiche le bloc et on rend le champ obligatoire
+            ConteneurCouleur.style.display = 'block';
+            InputCouleur.required = true;
+        }
+        else {
+            // Si décochée : on cache le bloc, on enlève l'obligation et on vide le texte
+            ConteneurCouleur.style.display = 'none';
+            InputCouleur.required = false;
+            InputCouleur.value = ''; 
+        }
+    });
 //---------------------------------------------------
 // 3) Démarre l'injection du menu au chargement de la page
 //---------------------------------------------------

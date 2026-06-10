@@ -6,19 +6,78 @@
     <meta name="color-scheme" content="dark">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chromatica - Qui somme nous ?</title>
+    <title>Chromatica - Ticket - Nouveau site Web</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image" href="./../img/icon.png">
-
-
-
-    <title>Nouveau site</title>
 </head>
 
 <body>
+    <h1 class="title">Ticket - Nouveau Site Web</h1>
+    <form>
+        <legend>Veuillez remplir les informations suivantes pour nous aider à mieux comprendre vos besoins et à créer un
+            site web qui correspond à vos attentes.</legend><br>
+        <fieldset>
+            <legend>Informations personnelles</legend>
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="numero">Numéro de téléphone:</label>
+            <input type="tel" id="numero" name="numero" required><br>
+        </fieldset>
 
+        <fieldset>
+            <legend>Information sur l'entreprise</legend>
+            <label for="entreprise">Nom de l'entreprise/organisation:</label>
+            <input type="text" id="entreprise" name="entreprise" required><br>
+        </fieldset>
 
+        <fieldset>
+            <legend>Détails du projet</legend>
+            <label for="projet">Nom du projet:</label>
+            <input type="text" id="projet" name="projet" required><br>
+            <label for="objectif">Objectif du site web:</label><br>
+            <textarea id="objectif" name="objectif" style="resize: none;" rows="4" cols="50" required></textarea><br>
+            <label for="fonctionnalites">Fonctionnalités souhaitées:</label><br>
+            <input type="checkbox" id="fonctionnalite1" name="fonctionnalites" value="e-commerce">
+            <label for="fonctionnalite1">E-commerce</label><br>
+            <input type="checkbox" id="fonctionnalite2" name="fonctionnalites" value="blog">
+            <label for="fonctionnalite2">Blog</label><br>
+            <input type="checkbox" id="fonctionnalite3" name="fonctionnalites" value="formulaire_contact">
+            <label for="fonctionnalite3">Formulaire de contact</label><br>
+            <input type="checkbox" id="fonctionnalite4" name="fonctionnalites" value="galerie_images">
+            <label for="fonctionnalite4">Galerie d'images</label><br>
+            <input type="checkbox" id="checkAutre" name="fonctionnalites" value="autre">
+            Autre<br>
+            <div id="zoneTexteAutre" style="display: none;">
+                <label for="precision">Veuillez préciser :</label><br>
+                <textarea id="precision" name="precision" rows="4" cols="50" style="resize: none;"></textarea>
+            </div>
+            <label for="inspiration">Sites web d'inspiration (facultatif):</label><br>
+            <textarea id="inspiration" name="inspiration" style="resize: none;" rows="4" cols="50"></textarea><br>
+        </fieldset>
 
+        <fieldset>
+            <legend>Choix des couleurs</legend>
+            <label for="Couleur">Couleur primaire:</label>
+            <input type="text" id="Couleur" name="Couleur" required><br>
+            <label for="Couleur2">Couleur secondaire:</label>
+            <input type="text" id="Couleur2" name="Couleur2" required><br>
+            <input type="checkbox" id="CouleurAutre" name="CouleurAutre" value="autre">
+            Autre<br>
+            <div id="zoneTexteAutre" style="display: none;">
+                <label for="precision">Veuillez préciser :</label><br>
+                <textarea id="precision" name="precision" rows="4" cols="50" style="resize: none;"></textarea>
+            </div>
 
+            <textarea id="CouleurPrecision" name="CouleurPrecision" rows="4" cols="50"
+                style="resize: none; display: none;"></textarea><br>
+
+        </fieldset>
+
+    </form>
+    </div>
+    <script src="./../js/script.js"></script>
 </body>
+
 </html>

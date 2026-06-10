@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr">
-<details>
-  <summary>Cliquez ici pour voir le menu</summary>
-  <ul>
-    <li>Option 1</li>
-    <li>Option 2</li>
-    <li>Option 3</li>
-  </ul>
-</details>
+<form action="/submit" method="POST">
+    <label>
+        <input type="checkbox" id="checkAutre" name="options" value="autre"> 
+        Autre
+    </label>
 
+    <br><br>
+
+    <div id="zoneTexteAutre" style="display: none;">
+        <label for="precision">Veuillez préciser :</label><br>
+        <textarea id="precision" name="precision" rows="4" cols="50" style="resize: none;"></textarea>
+    </div>
+
+    <br>
+    <button type="submit">Envoyer</button>
+</form>
+
+<script>
+    // 1. On récupère les deux éléments HTML
+    const checkboxAutre = document.getElementById('checkAutre');
+    const conteneurTexte = document.getElementById('zoneTexteAutre');
+    const textareaPrecision = document.getElementById('precision');
+
+    // 2. On écoute le clic sur la checkbox
+    checkboxAutre.addEventListener('change', function() {
+        if (this.checked) {
+            // Si cochée : on affiche le bloc et on rend le champ obligatoire
+            conteneurTexte.style.display = 'block';
+            textareaPrecision.required = true;
+        } else {
+            // Si décochée : on cache le bloc, on enlève l'obligation et on vide le texte
+            conteneurTexte.style.display = 'none';
+            textareaPrecision.required = false;
+            textareaPrecision.value = ''; 
+        }
+    });
+</script>
 
 </body>
 
