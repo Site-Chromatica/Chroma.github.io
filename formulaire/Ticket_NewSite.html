@@ -37,7 +37,7 @@
             <label for="projet">Nom du projet:</label>
             <input type="text" id="projet" name="projet" required><br>
             <label for="objectif">Objectif du site web:</label><br>
-            <textarea id="objectif" name="objectif" style="resize: none;" rows="4" cols="50" required></textarea><br>
+            <textarea id="objectif" name="objectif" rows="4" cols="50" required></textarea><br>
             <label for="fonctionnalites">Fonctionnalités souhaitées:</label><br>
             <input type="checkbox" id="fonctionnalite1" name="fonctionnalites" value="e-commerce">
             <label for="fonctionnalite1">E-commerce</label><br>
@@ -48,13 +48,13 @@
             <input type="checkbox" id="fonctionnalite4" name="fonctionnalites" value="galerie_images">
             <label for="fonctionnalite4">Galerie d'images</label><br>
             <input type="checkbox" id="checkAutre" name="fonctionnalites" value="autre">
-            Autre<br>
-            <div id="zoneTexteAutre" style="display: none;">
+            <label for="checkAutre">Autre</label><br>
+            <div id="zoneTexteAutre">
                 <label for="precision">Veuillez préciser :</label><br>
-                <textarea id="precision" name="precision" rows="4" cols="50" style="resize: none;"></textarea>
+                <textarea id="precision" name="precision" rows="4" cols="50"></textarea>
             </div>
             <label for="inspiration">Sites web d'inspiration (facultatif):</label><br>
-            <textarea id="inspiration" name="inspiration" style="resize: none;" rows="4" cols="50"></textarea><br>
+            <textarea id="inspiration" name="inspiration" rows="4" cols="50"></textarea><br>
         </fieldset>
 
         <fieldset>
@@ -63,15 +63,17 @@
             <input type="text" id="Couleur" name="Couleur" required><br>
             <label for="Couleur2">Couleur secondaire:</label>
             <input type="text" id="Couleur2" name="Couleur2" required><br>
-            <input type="checkbox" id="CouleurAutre" name="CouleurAutre" value="autre">
-            Autre<br>
-            <div id="zoneTexteAutre" style="display: none;">
-                <label for="precision">Veuillez préciser :</label><br>
-                <textarea id="precision" name="precision" rows="4" cols="50" style="resize: none;"></textarea>
+            <label for="CouleurAutre">Autre</label>
+            <input type="checkbox" id="CouleurAutre" name="CouleurAutre" value="autre"><br>
+
+            <div id="zoneTexteCouleur">
+                <label for="CouleurPrecision">Précisez la couleur :</label><br>
+                <textarea id="CouleurPrecision" name="CouleurPrecision" rows="4" cols="50"
+                    placeholder="Exemple : bleu, rouge, vert"></textarea><br>
             </div>
 
-            <textarea id="CouleurPrecision" name="CouleurPrecision" rows="4" cols="50"
-                style="resize: none; display: none;"></textarea><br>
+
+
 
         </fieldset>
 

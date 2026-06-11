@@ -73,41 +73,53 @@ function initMenuEvents() {
     });
 }
 
-const checkboxAutre = document.getElementById('checkAutre');
-const conteneurTexte = document.getElementById('zoneTexteAutre');
-const textareaPrecision = document.getElementById('precision');
+
+document.addEventListener('DOMContentLoaded', () => {
+    injectMenu();
+
+    const checkboxAutre = document.getElementById('checkAutre');
+    const conteneurTexte = document.getElementById('zoneTexteAutre');
+    const textareaPrecision = document.getElementById('precision');
+
+    if (checkboxAutre && conteneurTexte && textareaPrecision) {
+        // Réinitialise l'état au chargement
+        conteneurTexte.style.display = 'none';
+        textareaPrecision.required = false;
+        textareaPrecision.value = '';
+        checkboxAutre.checked = false;
+
+        checkboxAutre.addEventListener('change', function() {
+            if (this.checked) {
+                conteneurTexte.style.display = 'block';
+                textareaPrecision.required = true;
+            } else {
+                conteneurTexte.style.display = 'none';
+                textareaPrecision.required = false;
+                textareaPrecision.value = '';
+            }
+        });
+    }
+});
+
 
 // 2. On écoute le clic sur la checkbox
-    checkboxAutre.addEventListener('change', function() {
-        if (this.checked) {
-            // Si cochée : on affiche le bloc et on rend le champ obligatoire
-            conteneurTexte.style.display = 'block';
-            textareaPrecision.required = true;
-        } else {
-            // Si décochée : on cache le bloc, on enlève l'obligation et on vide le texte
-            conteneurTexte.style.display = 'none';
-            textareaPrecision.required = false;
-            textareaPrecision.value = ''; 
-        }
-    });
 const CouleurAutre = document.getElementById('CouleurAutre');
-const ConteneurCouleur = document.getElementById('zoneTexteAutre');
+const ConteneurCouleur = document.getElementById('zoneTexteCouleur');
 const InputCouleur = document.getElementById('CouleurPrecision');
 
-// 2. On écoute le clic sur la checkbox
+if (CouleurAutre && ConteneurCouleur && InputCouleur) {
     CouleurAutre.addEventListener('change', function() {
         if (this.checked) {
-            // Si cochée : on affiche le bloc et on rend le champ obligatoire
             ConteneurCouleur.style.display = 'block';
             InputCouleur.required = true;
-        }
-        else {
-            // Si décochée : on cache le bloc, on enlève l'obligation et on vide le texte
+        } else {
             ConteneurCouleur.style.display = 'none';
             InputCouleur.required = false;
-            InputCouleur.value = ''; 
+            InputCouleur.value = '';
         }
     });
+}
+
 //---------------------------------------------------
 // 3) Démarre l'injection du menu au chargement de la page
 //---------------------------------------------------
