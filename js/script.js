@@ -108,6 +108,11 @@ const ConteneurCouleur = document.getElementById('zoneTexteCouleur');
 const InputCouleur = document.getElementById('CouleurPrecision');
 
 if (CouleurAutre && ConteneurCouleur && InputCouleur) {
+    ConteneurCouleur.style.display = 'none';
+    InputCouleur.required = false;
+    InputCouleur.value = '';
+    CouleurAutre.checked = false;
+    
     CouleurAutre.addEventListener('change', function() {
         if (this.checked) {
             ConteneurCouleur.style.display = 'block';
