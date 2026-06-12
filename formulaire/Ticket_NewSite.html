@@ -76,6 +76,38 @@
 
 
         </fieldset>
+        <fieldset>
+            <legend>Budget et délais</legend>
+            <label for="budget">Budget estimé:</label>
+            <input type="text" id="budget" name="budget" required><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Hébergement</legend>
+            <label for="hebergement">Avez-vous déjà un hébergement pour votre site web ?</label><br>
+            <input type="radio" id="hebergementOui" name="hebergement" value="oui">
+            <label for="hebergementOui">Oui</label><br>
+            <input type="radio" id="hebergementNon" name="hebergement" value="non">
+            <label for="hebergementNon">Non</label><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Nos Hébergements</legend>
+            <label for="hebergementChromatica">Souhaitez-vous que nous hébergions votre site web ?</label><br>
+            <input type="radio" id="hebergementChromaticaOui" name="hebergementChromatica" value="oui" required>
+            <label for="hebergementChromaticaOui" style="resize: none;">Oui</label><br>
+            <input type="radio" id="hebergementChromaticaNon" name="hebergementChromatica" value="non">
+            <label for="hebergementChromaticaNon">Non</label><br>
+        </fieldset>
+        <fieldset id="zoneHebergement">
+            <legend>Maintenance</legend>
+            <p>Nous proposons un service de maintenance que si le site web est hébergé chez nous.</p>
+            <label for="maintenance">Souhaitez-vous que nous assurions la maintenance de votre site web ?</label><br>
+            <input type="radio" id="maintenanceOui" name="maintenance" value="oui">
+            <label for="maintenanceOui">Oui</label><br>
+            <input type="radio" id="maintenanceNon" name="maintenance" value="non">
+            <label for="maintenanceNon">Non</label><br>
+
 
     </form>
     </div>

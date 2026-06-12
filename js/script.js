@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         textareaPrecision.value = '';
         checkboxAutre.checked = false;
 
-        checkboxAutre.addEventListener('change', function() {
+        checkboxAutre.addEventListener('change', function () {
             if (this.checked) {
                 conteneurTexte.style.display = 'block';
                 textareaPrecision.required = true;
@@ -112,8 +112,8 @@ if (CouleurAutre && ConteneurCouleur && InputCouleur) {
     InputCouleur.required = false;
     InputCouleur.value = '';
     CouleurAutre.checked = false;
-    
-    CouleurAutre.addEventListener('change', function() {
+
+    CouleurAutre.addEventListener('change', function () {
         if (this.checked) {
             ConteneurCouleur.style.display = 'block';
             InputCouleur.required = true;
@@ -124,6 +124,25 @@ if (CouleurAutre && ConteneurCouleur && InputCouleur) {
         }
     });
 }
+
+const hebergementOui = document.getElementById('hebergementOui');
+const zoneHebergement = document.getElementById('zoneHebergement');
+if (hebergementOui) {
+    hebergementOui.addEventListener('click', function () {
+        if (hebergementOui.checked) {
+            zoneHebergement.style.display = 'block';
+            inputMaintenanceOui.required = true;
+            inputMaintenanceNon.required = true;
+        } else {
+            zoneHebergement.style.display = 'none';
+            inputMaintenanceOui.required = false;
+            inputMaintenanceNon.required = false;
+            inputMaintenanceOui.checked = false;
+            inputMaintenanceNon.checked = false
+        }
+    }
+    );
+};
 
 //---------------------------------------------------
 // 3) Démarre l'injection du menu au chargement de la page
