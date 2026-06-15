@@ -128,7 +128,7 @@ if (CouleurAutre && ConteneurCouleur && InputCouleur) {
 const hebergementOui = document.getElementById('hebergementOui');
 const zoneHebergement = document.getElementById('zoneHebergement');
 if (hebergementOui) {
-    hebergementOui.addEventListener('click', function () {
+    hebergementOui.addEventListener('change', function () {
         if (hebergementOui.checked) {
             zoneHebergement.style.display = 'block';
             inputMaintenanceOui.required = true;
