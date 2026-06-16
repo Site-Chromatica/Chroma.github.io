@@ -102,47 +102,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// 2. On écoute le clic sur la checkbox
-const CouleurAutre = document.getElementById('CouleurAutre');
-const ConteneurCouleur = document.getElementById('zoneTexteCouleur');
-const InputCouleur = document.getElementById('CouleurPrecision');
+document.addEventListener('DOMContentLoaded', () => {
+    // 2. On écoute le clic sur la checkbox couleur
+    const CouleurAutre = document.getElementById('CouleurAutre');
+    const ConteneurCouleur = document.getElementById('zoneTexteCouleur');
+    const InputCouleur = document.getElementById('CouleurPrecision');
 
-if (CouleurAutre && ConteneurCouleur && InputCouleur) {
-    ConteneurCouleur.style.display = 'none';
-    InputCouleur.required = false;
-    InputCouleur.value = '';
-    CouleurAutre.checked = false;
+    if (CouleurAutre && ConteneurCouleur && InputCouleur) {
+        ConteneurCouleur.style.display = 'none';
+        InputCouleur.required = false;
+        InputCouleur.value = '';
+        CouleurAutre.checked = false;
 
-    CouleurAutre.addEventListener('change', function () {
-        if (this.checked) {
-            ConteneurCouleur.style.display = 'block';
-            InputCouleur.required = true;
-        } else {
-            ConteneurCouleur.style.display = 'none';
-            InputCouleur.required = false;
-            InputCouleur.value = '';
-        }
-    });
-}
-
-const hebergementOui = document.getElementById('hebergementOui');
-const zoneHebergement = document.getElementById('zoneHebergement');
-if (hebergementOui) {
-    hebergementOui.addEventListener('change', function () {
-        if (hebergementOui.checked) {
-            zoneHebergement.style.display = 'block';
-            inputMaintenanceOui.required = true;
-            inputMaintenanceNon.required = true;
-        } else {
-            zoneHebergement.style.display = 'none';
-            inputMaintenanceOui.required = false;
-            inputMaintenanceNon.required = false;
-            inputMaintenanceOui.checked = false;
-            inputMaintenanceNon.checked = false
-        }
+        CouleurAutre.addEventListener('change', function () {
+            if (this.checked) {
+                ConteneurCouleur.style.display = 'block';
+                InputCouleur.required = true;
+            } else {
+                ConteneurCouleur.style.display = 'none';
+                InputCouleur.required = false;
+                InputCouleur.value = '';
+            }
+        });
     }
-    );
-};
+});
+
+
+
+
 
 //---------------------------------------------------
 // 3) Démarre l'injection du menu au chargement de la page
