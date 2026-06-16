@@ -275,12 +275,13 @@ h2 {
     width: 100%;
     height: 60px;
     margin-top: auto;
-}
+    }
 
-.document-icon {
-    font-size: 2.5rem;
-    /* couleur au choix */
-    margin-bottom: 10px;
+    #page-wrap {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 100vh;
 }
 
 textarea {
@@ -420,6 +421,65 @@ fieldset>label:first-of-type {
     margin-top: 0;
 }
 
+    .title {
+        padding: 0.2em 0.5rem;
+    }
+
+#chr{
+  display:flex;
+  flex-direction:column;
+  align-items:center
+}
+
+#chr svg {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    display: block;
+}
+
+#chr p{
+  color:#c4a0f0;
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-top:10px;
+  opacity:.75
+}
+
+#bw{
+  width:180px;
+  margin-top:8px;
+  height:3px;
+  background:rgba(150,80,220,.18);
+  border-radius:2px;
+  overflow:hidden
+}
+
+#cb{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#7c3aed,#c084fc);
+  transition: width .1s linear
+}
+
+#loader-root{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #080512;
+  z-index: 2000;
+}
+
+#page-wrap.hidden{
+  display: none !important;
+}
+
+
+
 /* ============================
    RESPONSIVE
    ============================ */
@@ -469,7 +529,4 @@ fieldset>label:first-of-type {
         font-size: 1.8rem;
     }
 
-    .title {
-        padding: 0.2em 0.5rem;
-    }
 }
