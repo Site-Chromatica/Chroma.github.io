@@ -329,6 +329,6 @@ window.addEventListener("DOMContentLoaded", () => {
 // 3) Démarre l'injection du menu au chargement de la page
 //---------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
-    showLoaderForTwoSeconds();
     injectMenu();
 });
+
