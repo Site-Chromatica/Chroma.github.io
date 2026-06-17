@@ -129,9 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // Configuration du loader
 const LOADER_CONFIG = {
   size: 600,
-  durationMs: 1025,
-  rotationSpeed: 1.6,
-  progressIncrement: 0.18,
+  durationMs: 200,
+  rotationSpeed: 6,
+  progressIncrement: 0.6,
   arcSpan: 90,
   labels: ['Initialisation...', 'Chargement...', 'Finalisation...', 'Presque prêt !'],
   proportions: {
@@ -301,6 +301,29 @@ function showLoaderForTwoSeconds() {
       }
     }, LOADER_CONFIG.durationMs);
 }
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const alreadyLoaded = localStorage.getItem("alreadyLoaded");
+    const loader = document.getElementById("loader-root");
+    const pageWrap = document.getElementById("page-wrap");
+
+    if (!loader || !pageWrap) return;
+
+    if (!alreadyLoaded) {
+        // Première fois → on lance ton loader stylé
+        showLoaderForTwoSeconds();
+
+        // On enregistre
+        localStorage.setItem("alreadyLoaded", "true");
+
+    } else {
+        // Déjà venu → on skip complètement
+        loader.style.display = "none";
+        pageWrap.classList.remove("hidden");
+    }
+});
 
 //---------------------------------------------------
 // 3) Démarre l'injection du menu au chargement de la page

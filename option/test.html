@@ -1,41 +1,68 @@
 <!DOCTYPE html>
 <html lang="fr">
-<form action="/submit" method="POST">
-    <label>
-        <input type="checkbox" id="checkAutre" name="options" value="autre"> 
-        Autre
-    </label>
+<div id="loader">
+  <div class="bar"></div>
+</div>
 
-    <br><br>
+<div id="content" style="display: none;">
+  <!-- ton contenu -->
+</div>
+<style>
+  #loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
 
-    <div id="zoneTexteAutre" style="display: none;">
-        <label for="precision">Veuillez préciser :</label><br>
-        <textarea id="precision" name="precision" rows="4" cols="50" style="resize: none;"></textarea>
-    </div>
+  .bar {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top-color: #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
 
-    <br>
-    <button type="submit">Envoyer</button>
-</form>
-
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
 <script>
-    // 1. On récupère les deux éléments HTML
-    const checkboxAutre = document.getElementById('checkAutre');
-    const conteneurTexte = document.getElementById('zoneTexteAutre');
-    const textareaPrecision = document.getElementById('precision');
+window.addEventListener("load", () => {
+  const alreadyLoaded = localStorage.getItem("alreadyLoaded");
 
-    // 2. On écoute le clic sur la checkbox
-    checkboxAutre.addEventListener('change', function() {
-        if (this.checked) {
-            // Si cochée : on affiche le bloc et on rend le champ obligatoire
-            conteneurTexte.style.display = 'block';
-            textareaPrecision.required = true;
-        } else {
-            // Si décochée : on cache le bloc, on enlève l'obligation et on vide le texte
-            conteneurTexte.style.display = 'none';
-            textareaPrecision.required = false;
-            textareaPrecision.value = ''; 
-        }
-    });
+  if (!alreadyLoaded) {
+    // Première visite → fake loading
+    const bar = document.querySelector(".bar");
+    const loader = document.getElementById("loader");
+    const content = document.getElementById("content");
+
+    // animation fake
+    setTimeout(() => {
+      bar.style.width = "100%";
+    }, 100);
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      content.style.display = "block";
+
+      // On enregistre que c’est déjà passé
+      localStorage.setItem("alreadyLoaded", "true");
+    }, 2000);
+
+  } else {
+    // Déjà venu → pas de loading
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  }
+});
 </script>
 
 </body>
