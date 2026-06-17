@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const LOADER_CONFIG = {
   size: 600,
   durationMs: 200,
-  rotationSpeed: 6,
+  rotationSpeed: 2,
   progressIncrement: 0.6,
   arcSpan: 90,
   labels: ['Initialisation...', 'Chargement...', 'Finalisation...', 'Presque prêt !'],
