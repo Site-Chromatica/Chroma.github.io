@@ -22,6 +22,7 @@ function injectMenu() {
     initMenuEvents();
 }
 
+
 //---------------------------------------------------
 // 2) Branche tous les comportements du menu
 //---------------------------------------------------
@@ -328,7 +329,13 @@ window.addEventListener("DOMContentLoaded", () => {
 //---------------------------------------------------
 // 3) Démarre l'injection du menu au chargement de la page
 //---------------------------------------------------
+
 document.addEventListener('DOMContentLoaded', () => {
     injectMenu();
-});
 
+    const btnMenu = document.querySelector(".menu-button");
+
+    btnMenu.addEventListener("click", () => {
+      btnMenu.classList.toggle("active");
+    });
+});
