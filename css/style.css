@@ -183,6 +183,10 @@ h2 {
     box-shadow: 0 0 15px var(--color6);
 
 }
+.menu-button {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
 
 
@@ -219,6 +223,7 @@ h2 {
     transition: transform 0.35s ease;
     z-index: 1000;
     box-shadow: -12px 0 24px rgba(0, 0, 0, 0.35);
+    
 }
 
 .menu-dropdown.open {
@@ -228,7 +233,7 @@ h2 {
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
     box-shadow: -20px 0 60px rgba(var(--color6-rgb), 0.8);
-    border-left: 1px solid #7c3aed;
+    cursor: pointer;
 }
 
 

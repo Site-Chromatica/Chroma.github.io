@@ -38,11 +38,22 @@ function initMenuEvents() {
     }
 
     const setMenuOpen = (open) => {
-        menuDropdown.classList.toggle('open', open);
-        overlay.classList.toggle('open', open);
-        menuBtn.setAttribute('aria-expanded', String(open));
-        menuDropdown.setAttribute('aria-hidden', String(!open));
-    };
+    menuDropdown.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuDropdown.setAttribute('aria-hidden', String(!open));
+
+    // ✅ ICI C'EST LE BON ENDROIT
+    menuBtn.classList.toggle("active", open);
+};
+document.addEventListener('click', (e) => {
+    const isInsideMenu = menuDropdown.contains(e.target);
+    const isButton = menuBtn.contains(e.target);
+
+    if (!isInsideMenu && !isButton) {
+        setMenuOpen(false);
+    }
+});
 
     menuBtn.addEventListener('click', () => {
         setMenuOpen(!menuDropdown.classList.contains('open'));
@@ -329,13 +340,12 @@ window.addEventListener("DOMContentLoaded", () => {
 //---------------------------------------------------
 // 3) Démarre l'injection du menu au chargement de la page
 //---------------------------------------------------
+const setMenuOpen = (open) => {
+    menuDropdown.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuDropdown.setAttribute('aria-hidden', String(!open));
 
-document.addEventListener('DOMContentLoaded', () => {
-    injectMenu();
-
-    const btnMenu = document.querySelector(".menu-button");
-
-    btnMenu.addEventListener("click", () => {
-      btnMenu.classList.toggle("active");
-    });
-});
+    // ✅ LA SOLUTION
+    menuBtn.classList.toggle("active", open);
+};
