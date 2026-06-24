@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480" role="img" aria-label="Circular UI icon with orbit ring and central diamond">
+
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="42%" r="65%">
+      <stop offset="0%"  stop-color="#2C1760"/>
+      <stop offset="100%" stop-color="#1B0C3E"/>
+    </radialGradient>
+
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <g id="background">
+    <circle cx="240" cy="240" r="224" fill="url(#bgGrad)"/>
+  </g>
+
+  <!-- Inner orbit ring -->
+  <g id="ring">
+    <circle cx="240" cy="240" r="190" fill="none" stroke="#4E1D9C" stroke-width="4"/>
+  </g>
+
+  <!-- Vertical dashed connector -->
+  <g id="dashed-line">
+    <line x1="240" y1="70" x2="240" y2="412" stroke="#5A2BAE" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 12"/>
+  </g>
+
+  <!-- Bright arc segments -->
+  <g id="arcs" fill="none" stroke-linecap="round">
+    <!-- top-left arc: left node to top node -->
+    <path d="M 50 240 A 190 190 0 0 1 240 50" stroke="#6C28DC" stroke-width="22"/>
+    <!-- bottom-right arc: right node to bottom node -->
+    <path d="M 430 240 A 190 190 0 0 1 240 430" stroke="#A655F7" stroke-width="22"/>
+  </g>
+
+  <!-- Cardinal nodes -->
+  <g id="nodes">
+    <circle cx="240" cy="50"  r="18" fill="#C085FD"/>
+    <circle cx="430" cy="240" r="13" fill="#7B3AEE"/>
+    <circle cx="240" cy="430" r="16" fill="#6E28DA"/>
+    <circle cx="50"  cy="240" r="13" fill="#7A3AEB"/>
+  </g>
+
+  <!-- Central layered diamond -->
+  <g id="center-diamond" filter="url(#softGlow)">
+    <rect x="165" y="165" width="150" height="150" rx="8" fill="#6930CD" transform="rotate(45 240 240)"/>
+    <rect x="186" y="186" width="108" height="108" rx="6" fill="#7A3AEE" transform="rotate(45 240 240)"/>
+    <rect x="209" y="209" width="62"  height="62"  rx="5" fill="#A755F7" transform="rotate(45 240 240)"/>
+  </g>
+
+</svg>
