@@ -70,7 +70,10 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
@@ -177,7 +180,7 @@ h2 {
     letter-spacing: -0.01em;
     text-align: center;
     background: rgba(19, 12, 40, 0.72);
-    backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(200%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     padding: 0.6em 0.5rem;
@@ -245,18 +248,37 @@ h2 {
 }
 
 @keyframes typing {
-    from { width: 0; }
-    to { width: min(35%, 90vw); }
+    from {
+        width: 0;
+    }
+
+    to {
+        width: min(35%, 90vw);
+    }
 }
 
 @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--lilas); }
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--lilas);
+    }
 }
 
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ============================
@@ -298,7 +320,6 @@ h2 {
     font-family: var(--font-body);
     font-weight: 600;
     font-size: 1em;
-    letter-spacing: 0.01em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -322,138 +343,86 @@ h2 {
    MENU BUTTON
    ============================ */
 
-.menu-container {
-    position: relative;
-}
+.navbar {
 
-.menu-button {
-    position: fixed;
-    top: 0.6rem;
-    right: 0.6rem;
-    font-size: 1.6rem;
-    color: var(--ink);
-    cursor: pointer;
-    padding: 0.5em 0.6em;
-    z-index: 1100;
-    border-radius: 50%;
-    background: rgba(19, 12, 40, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    rotate: 0deg;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: rotate 0.35s var(--ease), background 0.25s ease, box-shadow 0.25s ease;
-}
+    width: fit-content;
 
-.menu-button.active {
-    rotate: 90deg;
-    background: var(--chroma);
-    box-shadow: 0 0 20px rgba(124, 58, 237, 0.55);
-}
+    margin: 30px auto;
 
-.menu-button:hover {
-    background: var(--chroma);
-    color: #fff;
-    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
-}
-
-/* ============================
-   MENU OVERLAY
-   ============================ */
-
-.menu-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(4, 2, 10, 0.55);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 900;
-}
-
-.menu-overlay.open {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* ============================
-   MENU DROPDOWN
-   ============================ */
-
-.menu-dropdown {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    height: 100dvh;
-    width: min(300px, 78vw);
-    background: linear-gradient(180deg, rgba(45, 30, 82, 0.9), rgba(19, 12, 40, 0.92));
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
-    color: var(--ink);
-    padding: 1.5rem 1.1rem;
     display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
-    gap: clamp(0.4em, 1.6vh, 1em);
-    border-left: 1px solid rgba(255, 255, 255, 0.08);
-    transform: translateX(100%);
-    transition: transform 0.4s var(--ease);
-    z-index: 1000;
-    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
+
+    align-items: center;
+
+    gap: 40px;
+
+    background: #161b22;
+
+    padding: 10px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .35);
+
 }
 
-.menu-dropdown.open {
-    transform: translateX(0);
+.logo {
+
+    color: white;
+
+    font-weight: 700;
+
+    font-size: 22px;
+
+    padding: 0 15px;
+
 }
 
-.menu-item {
-    position: relative;
-    padding: 0.85rem 0.9rem 0.85rem 1.1rem;
-    color: var(--ink-dim);
-    cursor: pointer;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: clamp(0.9rem, 2vw, 1.1em);
-    transition: color 0.2s ease, background 0.2s ease, padding-left 0.2s ease;
+ul {
+
+    display: flex;
+
+    gap: 8px;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
 }
 
-.menu-item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    translate: 0 -50%;
-    width: 3px;
-    height: 0;
-    background: var(--chroma-vertical);
-    border-radius: 3px;
-    transition: height 0.25s var(--ease);
+a {
+
+    display: block;
+
+    color: #b9c0ca;
+
+    text-decoration: none;
+
+    padding: 12px 22px;
+
+    border-radius: 12px;
+
+    transition: .25s;
+
 }
 
-.menu-text {
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
-    font-family: var(--font-display);
-    color: var(--ink);
-    font-weight: 600;
-    font-size: clamp(1.2rem, 5vw, 2em);
-    padding-left: 0.2rem;
+a:hover {
+
+    background: #232b37;
+
+    color: white;
+
 }
 
-.menu-item:hover {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--ink);
-    padding-left: 1.3rem;
-}
+.active {
 
-.menu-item:hover::before {
-    height: 60%;
+    background: #3b82f6;
+
+    color: white;
+
+    box-shadow: 0 0 20px rgba(59, 130, 246, .45);
+
 }
 
 /* ============================
@@ -619,13 +588,13 @@ fieldset {
     background: rgba(124, 58, 237, 0.06);
 }
 
-fieldset > label {
+fieldset>label {
     display: block;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
 }
 
-fieldset > label:first-of-type {
+fieldset>label:first-of-type {
     margin-top: 0;
 }
 
@@ -664,8 +633,8 @@ input[type="radio"] {
     accent-color: var(--violet-soft);
 }
 
-input[type="checkbox"] + label,
-input[type="radio"] + label {
+input[type="checkbox"]+label,
+input[type="radio"]+label {
     display: inline;
     margin-left: 0.5rem;
     margin-bottom: 0;

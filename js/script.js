@@ -2,68 +2,44 @@
 // 1) Injecte le HTML du menu dans #menu-root
 //---------------------------------------------------
 function injectMenu() {
+
     const root = document.getElementById("menu-root");
+
     if (!root) return;
 
+    const inOption = window.location.pathname.includes("/option/");
+    const base = inOption ? "../" : "";
+
     root.innerHTML = `
-<button class="menu-button" aria-controls="side-panel" aria-expanded="false">☰</button>
+    <nav class="navbar">
 
-<div class="menu-overlay" aria-hidden="true"></div>
+        <div class="logo">
+            Chroma
+        </div>
 
-<nav id="side-panel" class="menu-dropdown" aria-hidden="true">
-  <h2 class="menu-text">Menu</h2>
-  <div class="menu-item">Accueil</div>
-  <div class="menu-item">Qui sommes nous</div>
-  <div class="menu-item">Pourquoi nous</div>
-  <div class="menu-item">Demandes</div>
-</nav>
+        <ul class="nav-links">
+
+            <li><a href="${base}index.html">Accueil</a></li>
+
+            <li><a href="${base}option/Who_Is_Chromatica.html">Qui sommes-nous</a></li>
+
+            <li><a href="${base}option/Why_Us.html">Pourquoi nous</a></li>
+
+            <li><a href="${base}option/Ask_Us_Anything.html">Demandes</a></li>
+
+        </ul>
+
+    </nav>
     `;
 
-    initMenuEvents();
+    activePage();
 }
+
 
 
 //---------------------------------------------------
 // 2) Branche tous les comportements du menu
 //---------------------------------------------------
-function initMenuEvents() {
-    const menuBtn = document.querySelector('.menu-button');
-    const menuDropdown = document.querySelector('.menu-dropdown');
-    const overlay = document.querySelector('.menu-overlay');
-    const items = document.querySelectorAll('.menu-item');
-
-    if (!menuBtn || !menuDropdown || !overlay) {
-        console.warn("Menu introuvable.");
-        return;
-    }
-
-    const setMenuOpen = (open) => {
-    menuDropdown.classList.toggle('open', open);
-    overlay.classList.toggle('open', open);
-    menuBtn.setAttribute('aria-expanded', String(open));
-    menuDropdown.setAttribute('aria-hidden', String(!open));
-
-    // ✅ ICI C'EST LE BON ENDROIT
-    menuBtn.classList.toggle("active", open);
-};
-document.addEventListener('click', (e) => {
-    const isInsideMenu = menuDropdown.contains(e.target);
-    const isButton = menuBtn.contains(e.target);
-
-    if (!isInsideMenu && !isButton) {
-        setMenuOpen(false);
-    }
-});
-
-    menuBtn.addEventListener('click', () => {
-        setMenuOpen(!menuDropdown.classList.contains('open'));
-    });
-
-    overlay.addEventListener('click', () => setMenuOpen(false));
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape") setMenuOpen(false);
-    });
 
     const inSousites = window.location.pathname.includes('/option/');
     const basePath = inSousites ? '..' : '.';
@@ -83,8 +59,6 @@ document.addEventListener('click', (e) => {
             setMenuOpen(false);
         });
     });
-}
-
 
 document.addEventListener('DOMContentLoaded', () => {
     injectMenu();
