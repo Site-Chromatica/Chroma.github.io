@@ -128,13 +128,25 @@ h2 {
 }
 
 @keyframes typing {
-    from { width: 0; }
-    to { width: min(35%, 90vw); }
+    from {
+        width: 0;
+    }
+
+    to {
+        width: min(35%, 90vw);
+    }
 }
 
 @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--color6); }
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--color6);
+    }
 }
 
 /* ============================
@@ -156,6 +168,53 @@ h2 {
     border: 3px solid var(--color6);
     box-shadow: 0 0 15px var(--color6);
     cursor: pointer;
+}
+
+.navbar {
+    width: fit-content;
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: #161b22;
+    padding: 10px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .35);
+}
+
+.navbar .logo {
+    color: white;
+    font-weight: 700;
+    font-size: 22px;
+    padding: 0 15px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    display: block;
+    color: #b9c0ca;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 12px;
+    transition: .25s;
+}
+
+.navbar a:hover {
+    background: #232b37;
+    color: white;
+}
+
+.navbar a.active {
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 0 20px rgba(59, 130, 246, .45);
 }
 
 /* ============================
