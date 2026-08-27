@@ -6,132 +6,50 @@
     background: none;
     box-sizing: border-box;
 }
-
-main {
     flex: 1;
-}
 
-body {
     display: flex;
-    flex-direction: column;
     min-height: 100vh;
-    background: #080512;
     overflow-y: auto;
-    overflow-x: hidden;
 }
-
 canvas {
-    position: fixed;
     inset: 0;
-    width: 100%;
     height: 100%;
-    z-index: -1;
 }
 
-@font-face {
-    font-family: 'Txt';
+.navbar .logo {
     src: url('../fonts/fontBold.ttf') format('truetype');
-    font-display: swap;
 }
-
 :root {
-    --color1: #0F0F0F;
     --color2: #E2DCEC;
-    --color3: #B19ED4;
     --color4: #1C1C1C;
     --color5: #E53935;
-    --color6: #592DA8;
-    --color6-rgb: 89, 45, 168;
+.navbar ul {
     --color7: #19102F;
-}
 
-/* ============================
    TYPOGRAPHIE DE BASE
-   ============================ */
 
-h2 {
     color: var(--color3);
-    padding: 0 2rem;
     font-size: clamp(0.95rem, 2.5vw, 1.4rem);
     font-weight: 400;
-}
-
+.navbar a {
 .objectif {
-    color: var(--color6);
     padding: 0 2rem;
-    margin-bottom: 50px;
     font-size: clamp(1rem, 2.5vw, 1.8rem);
-}
 
-/* ============================
    TITRE STICKY
-   ============================ */
 
-.title {
     position: sticky;
     top: 0px;
-    color: var(--color2);
-    font-size: clamp(1.4rem, 4vw, 5em);
+.navbar a:hover {
     text-align: center;
-    background-color: var(--color7);
     padding: 0.2em 0.5rem;
-    z-index: 800;
 }
 
-/* ============================
-   TITLE CONTAINER (grand titre animé)
+.navbar a.active {
    ============================ */
-
 .title-container {
-    max-width: 15em;
     margin: 1em 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-    color: var(--color3);
-    text-align: left;
-}
-
-.title-container,
-.main-title {
-    font-family: 'Txt', sans-serif;
-    font-size: clamp(1.8rem, 5vw, 5em);
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
-    color: var(--color3);
-}
-
-.title-container span {
-    color: var(--color6);
-    font-weight: 900;
-}
-
-/* ============================
-   TEXTE CURSEUR ANIMÉ
-   ============================ */
-
-.curseurtext {
-    color: var(--color6);
-    font-size: clamp(1rem, 3.5vw, 3.6rem);
-    padding: 0 2rem;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 2px solid var(--color6);
-    width: fit-content;
-    margin-bottom: 1.5em;
-    margin-top: -1.5em;
-    margin-left: auto;
-    margin-right: auto;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-
     to {
         width: min(35%, 90vw);
     }
