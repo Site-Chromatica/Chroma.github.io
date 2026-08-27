@@ -35,14 +35,62 @@ function injectMenu() {
   activePage();
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> daec7b074bcc4343f4304dc028d1ef0931910ae9
 //---------------------------------------------------
 // 2) Branche tous les comportements du menu
 //---------------------------------------------------
 function initMenuEvents() {
+<<<<<<< HEAD
   // Comportement simple : navigation sur clic des items du menu injecté
   const inSousites = window.location.pathname.includes('/option/');
   const basePath = inSousites ? '..' : '.';
   const items = Array.from(document.querySelectorAll('.nav-links li'));
+=======
+  const menuBtn = document.querySelector('.menu-button');
+  const menuDropdown = document.querySelector('.menu-dropdown');
+  const overlay = document.querySelector('.menu-overlay');
+  const items = document.querySelectorAll('.menu-item');
+
+  if (!menuBtn || !menuDropdown || !overlay) {
+    console.warn("Menu introuvable.");
+    return;
+  }
+
+  const setMenuOpen = (open) => {
+    menuDropdown.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuDropdown.setAttribute('aria-hidden', String(!open));
+
+    // ✅ ICI C'EST LE BON ENDROIT
+    menuBtn.classList.toggle("active", open);
+  };
+  document.addEventListener('click', (e) => {
+    const isInsideMenu = menuDropdown.contains(e.target);
+    const isButton = menuBtn.contains(e.target);
+
+    if (!isInsideMenu && !isButton) {
+      setMenuOpen(false);
+    }
+  });
+
+  menuBtn.addEventListener('click', () => {
+    setMenuOpen(!menuDropdown.classList.contains('open'));
+  });
+
+  overlay.addEventListener('click', () => setMenuOpen(false));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") setMenuOpen(false);
+  });
+
+  const inSousites = window.location.pathname.includes('/option/');
+  const basePath = inSousites ? '..' : '.';
+
+>>>>>>> daec7b074bcc4343f4304dc028d1ef0931910ae9
   items.forEach((item, index) => {
     item.addEventListener('click', () => {
       if (index === 0) {
@@ -54,6 +102,11 @@ function initMenuEvents() {
       } else if (index === 3) {
         window.location.href = `${basePath}/option/Ask_Us_Anything.html`;
       }
+<<<<<<< HEAD
+=======
+
+      setMenuOpen(false);
+>>>>>>> daec7b074bcc4343f4304dc028d1ef0931910ae9
     });
   });
 }
